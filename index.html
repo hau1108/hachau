@@ -20,7 +20,7 @@ text-align:center;
 }
 
 h1{
-color:white;
+color:#fff;
 font-size:50px;
 text-shadow:0 0 15px hotpink;
 animation:zoom 1.5s infinite alternate;
@@ -34,15 +34,27 @@ to{transform:scale(1.1);}
 img{
 width:250px;
 border-radius:20px;
-box-shadow:0 0 25px rgba(255,255,255,0.6);
+box-shadow:0 0 25px rgba(255,255,255,.6);
 margin-top:20px;
+}
+
+#playBtn{
+margin-top:20px;
+padding:15px 30px;
+border:none;
+border-radius:30px;
+font-size:18px;
+cursor:pointer;
+background:white;
+color:#ff4d88;
+box-shadow:0 0 15px pink;
 }
 
 .heart{
 position:absolute;
 color:#ff2d75;
-animation:fly linear infinite;
 pointer-events:none;
+animation:fly linear infinite;
 }
 
 @keyframes fly{
@@ -59,10 +71,11 @@ pointer-events:none;
 
 <img src="image.jpg" alt="Ảnh">
 
-<!-- Video chỉ dùng để phát âm thanh -->
-<video id="music" autoplay loop playsinline style="display:none;">
-    <source src="video.mp4" type="video/mp4">
-</video>
+<button id="playBtn">💖 Chạm vào đây 💖</button>
+
+<audio id="music" loop>
+    <source src="nhac.mp3" type="audio/mpeg">
+</audio>
 
 <script>
 // Tim bay
@@ -76,15 +89,22 @@ for(let i=0;i<80;i++){
     document.body.appendChild(heart);
 }
 
-// Tự phát nhạc
 const music=document.getElementById("music");
+const btn=document.getElementById("playBtn");
 
-window.onload=()=>{
-    music.play().catch(()=>{
-        document.body.addEventListener("click",()=>{
-            music.play();
-        },{once:true});
+// Thử tự phát
+window.addEventListener("load",()=>{
+    music.play().then(()=>{
+        btn.style.display="none";
+    }).catch(()=>{
+        // Trình duyệt chặn tự phát, sẽ hiện nút
     });
+});
+
+// Chạm nút để phát
+btn.onclick=()=>{
+    music.play();
+    btn.style.display="none";
 };
 </script>
 
