@@ -68,14 +68,18 @@ animation:fly linear infinite;
 
 <h1>💖 Hà Châu xinh gái 💖</h1>
 
-<img src="image.jpg" alt="ảnh">
+<!-- Ảnh -->
+<img src="image.jpg" alt="ảnh"
+onerror="this.style.display='none'; alert('Không tìm thấy image.jpg! Kiểm tra lại file')">
 
+<!-- Nút nhạc -->
 <button onclick="document.getElementById('music').play()">
 ▶ Bật nhạc
 </button>
 
 <audio id="music" loop>
 <source src="music.mp3" type="audio/mpeg">
+Trình duyệt không hỗ trợ audio
 </audio>
 
 <script>
