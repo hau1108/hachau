@@ -1,74 +1,135 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>💖</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dành cho Hà Châu ❤️</title>
 
-  <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-    }
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
 
-    body{
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      height:100vh;
-      background:linear-gradient(135deg,#ff4d6d,#ff99c8);
-      overflow:hidden;
-      font-family:Arial,sans-serif;
-    }
+body{
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+overflow:hidden;
+background:linear-gradient(135deg,#ff80bf,#ffcce6,#ffe6f2);
+font-family:Arial,sans-serif;
+text-align:center;
+}
 
-    h1{
-      color:#fff;
-      font-size:60px;
-      text-align:center;
-      text-shadow:0 0 15px rgba(255,255,255,.8);
-      animation:pulse 1.5s infinite alternate;
-      z-index:1;
-    }
+.container{
+z-index:2;
+}
 
-    @keyframes pulse{
-      from{transform:scale(1);}
-      to{transform:scale(1.1);}
-    }
+h1{
+font-size:65px;
+color:white;
+text-shadow:0 0 20px hotpink;
+animation:zoom 1.5s infinite alternate;
+}
 
-    .heart{
-      position:absolute;
-      color:red;
-      animation:fly 5s linear infinite;
-    }
+p{
+margin-top:20px;
+font-size:28px;
+color:white;
+text-shadow:0 0 10px deeppink;
+}
 
-    @keyframes fly{
-      from{
-        transform:translateY(100vh);
-        opacity:0;
-      }
-      to{
-        transform:translateY(-120vh);
-        opacity:1;
-      }
-    }
-  </style>
+button{
+margin-top:30px;
+padding:15px 35px;
+font-size:22px;
+border:none;
+border-radius:40px;
+background:white;
+color:#ff4d88;
+cursor:pointer;
+box-shadow:0 0 20px pink;
+transition:.3s;
+}
+
+button:hover{
+transform:scale(1.08);
+}
+
+.heart{
+position:absolute;
+color:#ff2d75;
+animation:fly linear infinite;
+}
+
+@keyframes fly{
+0%{
+transform:translateY(110vh);
+opacity:0;
+}
+20%{
+opacity:1;
+}
+100%{
+transform:translateY(-120vh);
+opacity:0;
+}
+}
+
+@keyframes zoom{
+from{transform:scale(1);}
+to{transform:scale(1.08);}
+}
+</style>
+
 </head>
-
 <body>
 
-<h1>✨ Hà Châu xinh gái ❤️ ✨</h1>
+<div class="container">
+<h1>🌸 Hà Châu xinh gái nhất 🌸</h1>
+
+<p>
+Chúc em luôn vui vẻ,<br>
+luôn mỉm cười thật nhiều nha 💖
+</p>
+
+<button onclick="playMusic()">
+🎵 Bật nhạc
+</button>
+</div>
+
+<audio id="music" loop>
+<source src="music.mp3" type="audio/mpeg">
+</audio>
 
 <script>
-for(let i=0;i<50;i++){
-  const heart=document.createElement("div");
-  heart.className="heart";
-  heart.innerHTML="❤️";
-  heart.style.left=Math.random()*100+"vw";
-  heart.style.fontSize=(20+Math.random()*30)+"px";
-  heart.style.animationDelay=(Math.random()*5)+"s";
-  document.body.appendChild(heart);
+
+function playMusic(){
+document.getElementById("music").play();
 }
+
+for(let i=0;i<100;i++){
+
+let heart=document.createElement("div");
+
+heart.className="heart";
+
+heart.innerHTML="💖";
+
+heart.style.left=Math.random()*100+"vw";
+
+heart.style.fontSize=(15+Math.random()*30)+"px";
+
+heart.style.animationDuration=(4+Math.random()*5)+"s";
+
+heart.style.animationDelay=Math.random()*5+"s";
+
+document.body.appendChild(heart);
+
+}
+
 </script>
 
 </body>
